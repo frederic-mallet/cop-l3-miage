@@ -5,7 +5,6 @@ import java.awt.Graphics;
 
 import frame.AWTHelper;
 import frame.FrameHelper;
-import tp2.ExtractTrianglesPolygoneRegulier;
 import tp2.vecteur.Vecteur;
 
 public class PizzaSliceRegularPolygon {
@@ -39,6 +38,7 @@ public class PizzaSliceRegularPolygon {
 	public static void main(String[] args) {
 		int nbTriangles = 20;
 		int period = nbTriangles * 2 - 1;
+		// build a polygon with nbTriangles points and inside the rectangle of width 150 and height 100
 		tp2.Polygone[] t = ExtractTrianglesPolygoneRegulier.extract(nbTriangles, 150, 100);
 		Color[] c = AWTHelper.genColor(nbTriangles, nbTriangles, 1); // mainly blue
 

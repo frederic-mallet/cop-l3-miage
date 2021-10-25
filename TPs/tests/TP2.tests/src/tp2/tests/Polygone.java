@@ -1,6 +1,5 @@
 package tp2.tests;
 
-import tp2.ExtractTriangles;
 import tp2.vecteur.Vecteur;
 
 /**

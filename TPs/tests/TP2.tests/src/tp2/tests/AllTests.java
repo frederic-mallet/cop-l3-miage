@@ -6,8 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({RechercheDichotomiqueIterativeTest.class, RechercheSequentielleTest.class,
-	RechercheTableauxTest.class, Vecteur2DTest.class, VecteurTest.class, PolygoneTest.class,
-	TortueTest.class})
+	RechercheTableauxTest.class, Vecteur2DTest.class, VecteurTest.class, PolygoneTest.class})
 public class AllTests {
 
 }
