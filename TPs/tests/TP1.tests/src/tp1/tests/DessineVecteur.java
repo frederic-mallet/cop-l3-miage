@@ -21,7 +21,7 @@ class DessineVecteur {
 	}
 	public void dessine(Graphics g, Vecteur v, boolean showPosition) {
 		g.setColor(color);
-		//		line(g, new Vecteur(), v);		
+//		line(g, new Vecteur(0,0), v);		
 		g.fillOval((int)v.getX() - 2, (int)v.getY() - 2, 4, 4);
 
 		if (showPosition)
