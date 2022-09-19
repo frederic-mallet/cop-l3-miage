@@ -36,7 +36,7 @@ public class TortueTest {
 		}
 		assertEquals("x", 0.0, t.getX(), 1e-4);
 		assertEquals("Y", 0.0, t.getY(), 1e-4);
-		assertEquals("direction", 90, t.getDirection());
+		assertEquals("direction", 90, t.getDirection(), 1e-4);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class TortueTest {
 		}
 		assertEquals("x", 0.0, t.getX(), 1e-4);
 		assertEquals("Y", 0.0, t.getY(), 1e-4);
-		assertEquals("direction", 90, t.getDirection());
+		assertEquals("direction", 90, t.getDirection(), 1e-4);
 	}
 	@Test
 	public void plusieursToursAGauche() {
@@ -59,6 +59,6 @@ public class TortueTest {
 		}
 		assertEquals("x", 0.0, t.getX(), 1e-4);
 		assertEquals("Y", 0.0, t.getY(), 1e-4);
-		assertEquals("direction", 90, t.getDirection());
+		assertEquals("direction", 90, t.getDirection(), 1e-4);
 	}
 }
