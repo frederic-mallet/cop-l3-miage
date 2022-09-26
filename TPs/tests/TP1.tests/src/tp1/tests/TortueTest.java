@@ -14,11 +14,11 @@ public class TortueTest {
 		test.publicConstructors(2);
 		test.publicConstructor(); // default constructor
 		test.publicConstructor(double.class, double.class, double.class); //x, y, angle
-
+		
 		Tortue t = new Tortue();
 		assertEquals("initial x", 0.0, t.getX(), 1e-4);
 		assertEquals("initial Y", 0.0, t.getY(), 1e-4);
-		assertEquals("initial direction", 90.0, t.getDirection(), 1e-4);
+		assertEquals("initial direction", 90, t.getDirection());
 	}
 
 	double[] x = { 0.0, 10.0, 10.0, 0.0 };
