@@ -28,7 +28,7 @@ public class RechercheTableauxTest {
 
 	@Test
 	public void testFindNinT() {
-		int [] tab = generateTab(100, 1000, -10000, 10000);
+		int [] tab = generateTab(100, 1000, -100, 100);
 
 		assertEquals(-1, RechercheTableaux.findNinT(tab, 200));
 
@@ -72,7 +72,7 @@ public class RechercheTableauxTest {
 
 	@Test
 	public void testFindNinSortedT() {
-		int [] tab = generateTab(100, 1000, -10000, 10000);
+		int [] tab = generateTab(100, 1000, -100, 100);
 		Arrays.sort(tab);
 		assertEquals(-1, RechercheTableaux.findNinSortedT(tab, 200));
 
@@ -108,9 +108,9 @@ public class RechercheTableauxTest {
 		double v = Complexity.eval(
 				taille -> {	return generateTab(taille, taille, -10000, 10000); }, 
 				tab -> { RechercheTableaux.findNinT(tab, 100000); }, 
-				5, 10); // 10^5 -> 10^10
+				4, 9); // 10^4 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.1); // Expect a linear complexity
+		assertEquals(1.0, v, 0.2); // Expect a linear complexity
 	}
 	
 
