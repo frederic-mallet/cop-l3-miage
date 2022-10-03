@@ -24,7 +24,7 @@ public class RechercheDichotomiqueIterativeTest {
 
 	@Test
 	public void testCherche() {
-		int [] tab = new RechercheTableauxTest().generateTab(100, 1000, -10000, 10000);
+		int [] tab = new RechercheTableauxTest().generateTab(100, 1000, -100, 100);
 
 		RechercheDichotomiqueIterative r = new RechercheDichotomiqueIterative(tab);
 		assertEquals(-1, r.findN(200));
@@ -41,7 +41,7 @@ public class RechercheDichotomiqueIterativeTest {
 		Complexity.LOG = false;
 		double v = Complexity.evalLog(
 				taille -> {	
-					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -10000, 10000);
+					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -100, 100);
 					return new RechercheDichotomiqueIterative(tab);
 				}, 
 				r -> { r.findN(200); }, 
