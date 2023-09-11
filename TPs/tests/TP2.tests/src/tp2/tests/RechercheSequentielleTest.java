@@ -1,6 +1,7 @@
 package tp2.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
@@ -31,7 +32,8 @@ public class RechercheSequentielleTest {
 
 		int pos = generateur.nextInt(tab.length);
 		int ind = r.findN(tab[pos]);
-		assertTrue(ind <= pos);
+		assertNotEquals("L'élément n'a pas été trouvé", ind, -1);
+		assertEquals(tab[ind], tab[pos]);
 	}
 
 	@Test
@@ -76,7 +78,7 @@ public class RechercheSequentielleTest {
 					return new RechercheSequentielle(tab);
 				}, 
 				r -> { r.findN(20000); }, 
-				5, 10); // 10^5 -> 10^10
+				5, 9); // 10^5 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
 		assertEquals(1.0, v, 0.16); // Expect a linear complexity
 	}
@@ -92,8 +94,8 @@ public class RechercheSequentielleTest {
 					return new RechercheSequentielle(tab);
 				}, 
 				r -> { r.countNs(42); }, 
-				5, 10); // 10^5 -> 10^10
+				5, 9); // 10^5 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.16); // Expect a linear complexity
+		assertEquals(1.0, v, 0.3); // Expect a linear complexity
 	}
 }

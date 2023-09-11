@@ -1,6 +1,7 @@
 package tp2.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
@@ -28,10 +29,12 @@ public class RechercheDichotomiqueIterativeTest {
 
 		RechercheDichotomiqueIterative r = new RechercheDichotomiqueIterative(tab);
 		assertEquals(-1, r.findN(200));
+		assertEquals(-1, r.findN(-200));
 
 		int pos = generateur.nextInt(tab.length);
 		int ind = r.findN(r.get(pos));
-		assertTrue(ind + ":" + pos, ind <= pos);
+		assertNotEquals("L'élément n'a pas été trouvé", ind, -1);
+		assertEquals(r.get(ind), r.get(pos));
 	}
 
 
@@ -41,7 +44,7 @@ public class RechercheDichotomiqueIterativeTest {
 		Complexity.LOG = false;
 		double v = Complexity.evalLog(
 				taille -> {	
-					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -100, 100);
+					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -10000, 10000);
 					return new RechercheDichotomiqueIterative(tab);
 				}, 
 				r -> { r.findN(200); }, 

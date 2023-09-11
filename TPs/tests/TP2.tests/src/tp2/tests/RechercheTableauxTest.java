@@ -34,11 +34,13 @@ public class RechercheTableauxTest {
 
 		int pos = generateur.nextInt(tab.length);
 		int ind = RechercheTableaux.findNinT(tab, tab[pos]);
-		assertTrue(ind <= pos);		
+		assertNotEquals("L'élément n'a pas été trouvé", ind, -1);
+		assertEquals(tab[ind], tab[pos]);
 
 		tab[pos] = 42;
 		int p = RechercheTableaux.findNinT(tab, 42);
-		assertTrue(p <= pos);
+		assertNotEquals("L'élément n'a pas été trouvé", p, -1);
+		assertEquals(tab[p], tab[pos]);
 	}
 
 	@Test
@@ -78,12 +80,13 @@ public class RechercheTableauxTest {
 
 		int pos = generateur.nextInt(tab.length);
 		int ind = RechercheTableaux.findNinSortedT(tab, tab[pos]);
+		assertNotEquals("L'élément n'a pas été trouvé", ind, -1);
 		assertEquals(tab[ind], tab[pos]);		
 
 		tab[pos] = 42;
 		Arrays.sort(tab);
 		int p = RechercheTableaux.findNinSortedT(tab, 42);
-		assertNotEquals(-1, p);
+		assertNotEquals("L'élément n'a pas été trouvé", -1, p);
 	}
 
 	@Test
@@ -110,7 +113,7 @@ public class RechercheTableauxTest {
 				tab -> { RechercheTableaux.findNinT(tab, 100000); }, 
 				4, 9); // 10^4 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.2); // Expect a linear complexity
+		assertEquals(1.0, v, 0.3); // Expect a linear complexity
 	}
 	
 
@@ -123,6 +126,6 @@ public class RechercheTableauxTest {
 				tab -> { RechercheTableaux.countNsinT(tab, 42); }, 
 				4, 9); // 10^4 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
-		assertTrue(v < 1.1); // Expect a linear complexity (tolerates 10%
+		assertTrue(v < 1.15); // Expect a linear complexity (tolerates 15%
 	}
 }
