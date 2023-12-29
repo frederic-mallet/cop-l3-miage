@@ -15,7 +15,7 @@ public class Fibonacci {
 			long avant = System.nanoTime();
 			fib(i);
 			long apres = System.nanoTime();
-			System.out.println(Time.nanoSecondsToTime(apres - avant));
+			System.out.println(i + "\t" + Time.nanoSecondsToTime(apres - avant));
 		}
 	}
 }
