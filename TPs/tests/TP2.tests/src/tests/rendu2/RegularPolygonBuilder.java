@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.rendu2;
 
 import tp1.turtle.Tortue;
 import tp2.vecteur.Vecteur;

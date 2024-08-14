@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.tp2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -70,15 +70,17 @@ public class RechercheSequentielleTest {
 	public void testComplexityFindWhenNotThere() {
 		System.out.print("Testing complexity find when not there (Object) : expect linear");
 		Complexity.LOG = false;
-		double v = Complexity.eval(
+		double [] v = Complexity.eval(
 				taille -> {	
 					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -10000, 10000);
 					return new RechercheSequentielle(tab);
 				}, 
 				r -> { r.findN(20000); }, 
 				5, 10); // 10^5 -> 10^10
-		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.16); // Expect a linear complexity
+		System.out.println("\t-> t(N)=N^" + v[v.length-1]);
+		assertTrue(v[v.length - 1] < 1.1); // Expect a linear complexity, tolerates 10%
+//		System.out.println(Arrays.toString(v));
+		//assertEquals(1.0, v, 0.16); // Expect a linear complexity
 	}
 	
 
@@ -86,14 +88,16 @@ public class RechercheSequentielleTest {
 	public void testComplexityCount() {
 		System.out.print("Testing complexity count (Object) : expect linear");
 		Complexity.LOG = false;
-		double v = Complexity.eval(
+		double [] v = Complexity.eval(
 				taille -> {	
 					int [] tab = new RechercheTableauxTest().generateTab(taille, taille, -100, 100);
 					return new RechercheSequentielle(tab);
 				}, 
 				r -> { r.countNs(42); }, 
 				5, 10); // 10^5 -> 10^10
-		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.16); // Expect a linear complexity
+		System.out.println("\t-> t(N)=N^" + v[v.length-1]);
+		assertTrue(v[v.length - 1] < 1.1); // Expect a linear complexity, tolerates 10%
+//		System.out.println(Arrays.toString(v));
+		//assertEquals(1.0, v, 0.16); // Expect a linear complexity
 	}
 }

@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.tp2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -105,12 +105,17 @@ public class RechercheTableauxTest {
 	public void testComplexityFindWhenNotThere() {
 		System.out.print("Testing complexity find when not there (static): expect linear ");
 		Complexity.LOG = false;
-		double v = Complexity.eval(
+		double [] v = Complexity.eval(
 				taille -> {	return generateTab(taille, taille, -10000, 10000); }, 
 				tab -> { RechercheTableaux.findNinT(tab, 100000); }, 
-				4, 9); // 10^4 -> 10^9
-		System.out.println("\t-> t(N)=N^" + v);
-		assertEquals(1.0, v, 0.2); // Expect a linear complexity
+				4, 10); // 10^4 -> 10^10
+		double max = v[0];
+		for (double vi : v) {
+			assertTrue(vi < 1.1); // Expect a linear complexity (tolerates 10%)
+			if (vi > max) max = vi;
+		}
+		System.out.println("\t-> t(N)=N^" + max);
+//		System.out.println(Arrays.toString(v));
 	}
 	
 
@@ -118,11 +123,11 @@ public class RechercheTableauxTest {
 	public void testComplexityCount() {
 		System.out.print("Testing complexity count (static) : expect linear");
 		Complexity.LOG = false;
-		double v = Complexity.eval(
+		double [] v = Complexity.eval(
 				taille -> {	return generateTab(taille, taille, -100, 100); }, 
 				tab -> { RechercheTableaux.countNsinT(tab, 42); }, 
 				4, 9); // 10^4 -> 10^9
 		System.out.println("\t-> t(N)=N^" + v);
-		assertTrue(v < 1.1); // Expect a linear complexity (tolerates 10%
+		assertTrue(v[v.length - 1] < 1.1); // Expect a linear complexity (tolerates 10%
 	}
 }

@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.rendu2;
 
 import java.util.Iterator;
 

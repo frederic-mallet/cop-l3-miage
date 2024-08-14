@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.rendu2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -36,7 +36,7 @@ public class PolygoneTest {
 		assertEquals(p, newP, 1e-4); // the perimetre should not change when changing the points
 	}
 	
-	/**
+	/** 
 	 * Check that the dimension is assigned correctly
 	 */
 	@Test

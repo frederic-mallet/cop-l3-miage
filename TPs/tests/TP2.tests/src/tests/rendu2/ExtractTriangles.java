@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.rendu2;
 
 import tp2.Polygone;
 

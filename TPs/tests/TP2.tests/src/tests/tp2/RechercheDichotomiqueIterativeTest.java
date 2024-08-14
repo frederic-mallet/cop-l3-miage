@@ -1,4 +1,4 @@
-package tp2.tests;
+package tests.tp2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
