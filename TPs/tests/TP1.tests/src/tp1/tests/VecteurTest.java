@@ -1,6 +1,7 @@
 package tp1.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
@@ -63,7 +64,35 @@ public class VecteurTest {
 		testY(-v.getY(), minusV);
 	}
 	
-	
+	@Test
+	public void testColineaire1() {
+		Vecteur v = generateRandomVecteur(-500, 500);
+		int k = generateRandomInteger(-20, 20);
+		Vecteur kV = v.multK(k);
+		// 1 vecteur kV est colinéaire à v si il existe k tel que kV = k * V
+		assertTrue(Vecteur.colineaire(v, kV));
+		assertTrue(Vecteur.colineaire(kV, v)); // commutativité
+	}
+
+	@Test
+	public void testColineaire2() {
+		Vecteur v = generateRandomVecteur(-500, 500);
+		// rotate by 90 degrees
+		Vecteur vR = new Vecteur(-v.getY(), v.getX());
+		// 1 vecteur n'est jamais colinéaire à son vecteur orthogonal sauf si <0,0>
+		assertTrue(v.length()==0 || !Vecteur.colineaire(v, vR));
+	}
+
+	@Test
+	public void testColineaire3() {
+		Vecteur v = generateRandomVecteur(-500, 500);
+		Vecteur v0 = new Vecteur(0, 0);
+		
+		// v0 est colinéaire avec tout le monde
+		assertTrue(Vecteur.colineaire(v, v0));
+		assertTrue(Vecteur.colineaire(v0, v)); // commutativité		
+	}
+
 	@Test
 	public void testMultK() {
 		Vecteur v = generateRandomVecteur(-500, 500);
@@ -106,9 +135,16 @@ public class VecteurTest {
 		// rotate by 90 degrees
 		Vecteur vR = new Vecteur(-v.getY(), v.getX());
 		double p = Vecteur.produitScalaire(v, vR);
-		assertEquals("v.vT = 0 iif v and vT are orthogonal", 0, p, 1e-4);
+		assertEquals("v.vR = 0 iif v and vR are orthogonal", 0, p, 1e-4);
 	}
 	
+	@Test
+	public void testNormalization() {
+		Vecteur v = generateRandomVecteur(-500, 500);
+		Vecteur vNorm = v.normalization();
+		assertTrue(Vecteur.colineaire(v, vNorm));
+		assertEquals(1.0, vNorm.length(), 1e-3);
+	}
 	@Test
 	public void testProduitVectoriel1() {
 		Vecteur v = generateRandomVecteur(-500, 500);
