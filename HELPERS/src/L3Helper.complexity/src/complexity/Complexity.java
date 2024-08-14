@@ -10,12 +10,12 @@ public class Complexity {
 	 * @param max 10^max is the maximum size of the object under test (max >= min)
 	 * @return log_10(complexity)
 	 */
-	public static <T> double eval(TestBuilder<T> builder, TestRunner<T> runner, int min, int max) {
+	public static <T> double[] eval(TestBuilder<T> builder, TestRunner<T> runner, int min, int max) {
 		assert(min > 0);
 		assert(max >= min);
 		
 		long[] durations = new long[max];
-		double res = 0;
+		double[] res = new double[max - min];
 		int taille = (int)Math.pow(10, min);
 		durations[min - 1] = 1; // to avoid log(0) = Infinity
 		for (int exp = min; exp < max; exp++) {
@@ -29,7 +29,7 @@ public class Complexity {
 			
 			if (durations[exp] <= 0) durations[exp] = 1; // to avoid undefined Log
 			
-			res = Math.log10(durations[exp]) - Math.log10(durations[exp - 1]);
+			res[exp-min] = Math.log10(durations[exp]) - Math.log10(durations[exp - 1]);
 			
 			if (LOG) {
 				System.out.println(taille + " " + durations[exp - 1] + " -> " + durations[exp] + " " + res);
