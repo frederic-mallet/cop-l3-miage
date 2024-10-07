@@ -127,7 +127,12 @@ public class RechercheTableauxTest {
 				taille -> {	return generateTab(taille, taille, -100, 100); }, 
 				tab -> { RechercheTableaux.countNsinT(tab, 42); }, 
 				4, 9); // 10^4 -> 10^9
-		System.out.println("\t-> t(N)=N^" + v);
+		double max = v[0];
+		for (double vi : v) {
+			assertTrue(vi < 1.1); // Expect a linear complexity (tolerates 10%)
+			if (vi > max) max = vi;
+		}
+		System.out.println("\t-> t(N)=N^" + max);
 		assertTrue(v[v.length - 1] < 1.1); // Expect a linear complexity (tolerates 10%
 	}
 }
