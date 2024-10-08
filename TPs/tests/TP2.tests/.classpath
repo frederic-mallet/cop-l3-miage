@@ -21,7 +21,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/TP2">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/uca.l3.helper.complexity">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -31,7 +31,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/uca.l3.helper.complexity">
+	<classpathentry combineaccessrules="false" kind="src" path="/TP2">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
