@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import test.TestSignature;
-import tortue.Tortue;
+import tp1.turtle.Tortue;
 
 public class TortueTest {
 	@Test
