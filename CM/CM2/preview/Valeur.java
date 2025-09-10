@@ -1,13 +1,18 @@
-
 /**
- * CM2 : 
+ * CM2 : Compare enum and classes
+ * 
+ * Uses Preview Language Feature JP488 from JDK 24
+ * https://openjdk.org/jeps/488
+ * 
+ * java --enable-preview TestCartes.java
+ * 
  * @author fmallet
  */
 class Valeur {
+	
+	private int valeur;
 
-	int valeur;
-
-	Valeur(int valeur) {
+	private Valeur(int valeur) {
 		this.valeur = valeur;
 	}
 
@@ -38,4 +43,20 @@ class Valeur {
 			return "Erreur!"; // pas très bonne solution.
 		}
 	}
+	
+	boolean estSuperieureA(Valeur autre) {
+		return this.valeur > autre.valeur;
+	}
+	
+	// when -> no break
+	int maValeur() {
+		int v = 0;
+		switch (valeur) {
+		case 10 -> v = valeur;
+		case 14 -> v = valeur - 3;
+		case int i when i>10 && i<14 -> v = valeur - 9;
+		case int i -> v = -2; //ERROR: anywhere else
+		}
+		return v;
+	}	
 }

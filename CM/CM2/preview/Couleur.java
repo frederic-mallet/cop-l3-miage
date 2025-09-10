@@ -1,11 +1,17 @@
+/**
+ * CM2 : Compare enum and classes
+ * 
+ * @author fmallet
+ */
+
 class Couleur {
-	int couleur;
+	private int couleur;
 	
-	Couleur(int couleur) {
+	private Couleur(int couleur) {
 		this.couleur = couleur;
 	}
 	
-	static final Couleur 
+	static public final Couleur 
 			TREFLE  = new Couleur(1),
 			PIQUE   = new Couleur(2),
 			COEUR   = new Couleur(3),
