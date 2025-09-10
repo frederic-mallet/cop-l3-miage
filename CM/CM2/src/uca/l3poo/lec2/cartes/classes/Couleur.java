@@ -25,4 +25,8 @@ class Couleur {
 	public String toString() {
 		return this.couleur;
 	}
+	
+	boolean estLaMêmeCouleurQue(Couleur autre) {
+		return this.couleur == autre.couleur;
+	}
 }
