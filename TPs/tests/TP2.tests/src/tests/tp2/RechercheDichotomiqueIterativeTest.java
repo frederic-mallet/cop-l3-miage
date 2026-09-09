@@ -30,8 +30,10 @@ public class RechercheDichotomiqueIterativeTest {
 		assertEquals(-1, r.findN(200));
 
 		int pos = generateur.nextInt(tab.length);
-		int ind = r.findN(r.get(pos));
-		assertTrue(ind + ":" + pos, ind <= pos);
+		int valeur = r.get(pos);
+		int ind = r.findN(valeur);
+		//assertTrue(ind + ":" + pos, ind <= pos);
+		assertTrue("pour indice " + ind + "on a : " + r.get(ind) + "et pour indice " + pos + "on a " + valeur, r.get(ind) == valeur);
 	}
 
 
